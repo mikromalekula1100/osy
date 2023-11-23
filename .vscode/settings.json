@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "slowfunctions.h": "c",
+        "secondfunctions.h": "c",
+        "*.tcc": "c",
+        "functional": "c",
+        "random": "c",
+        "cmath": "c"
+    }
+}
