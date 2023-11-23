@@ -6,7 +6,7 @@ testSecond: secondLib
 	gcc testSecond.c -L./libs -lsecondLib -o testSecond
 	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./testSecond
 
-testThird: testThird.cf
+testThird: testThird.c
 	gcc testThird.c -fPIC -ldl -o testThird
 	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./testThird
 

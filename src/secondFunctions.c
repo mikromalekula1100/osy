@@ -13,7 +13,6 @@ int GCF(int firstNumber, int secondNumber){
             return currentNumber;
         }
     }
-    printf("%d", 2);
     return 1;
 }
 
@@ -24,7 +23,6 @@ double calculatingE(int x){
 
         numberE += 1.0/(factorial(i));
     }
-    printf("%d", 2);
     return (-numberE);
 }
 
