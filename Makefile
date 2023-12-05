@@ -1,20 +1,20 @@
 testFirst: firstLib
-	gcc testFirst.c -L./libs -lfirstLib -o testFirst
-	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./testFirst
+	gcc test_first.c -L./libs -lfirstLib -o test_first
+	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./test_first
 
 testSecond: secondLib
-	gcc testSecond.c -L./libs -lsecondLib -o testSecond
-	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./testSecond
+	gcc test_second.c -L./libs -lsecondLib -o test_second
+	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./test_second
 
-testThird: testThird.c
-	gcc testThird.c -fPIC -ldl -o testThird
-	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./testThird
+testThird: test_third.c secondLib firstLib
+	gcc test_third.c -fPIC -ldl -o test_third
+	export LD_LIBRARY_PATH=/home/maks/Desktop/Library/libs && ./test_third
 
 firstLib:
-	cd ./libs && gcc -o libfirstLib.so -shared -fPIC ../src/firstFunctions.c ../src/supportFunctions.c -lm
+	cd ./libs && gcc -o libfirstLib.so -shared -fPIC ../src/first_functions.c ../src/support_functions.c -lm
 
 secondLib: 
-	cd ./libs && gcc -o libsecondLib.so -shared -fPIC ../src/secondFunctions.c ../src/supportFunctions.c -lm 
+	cd ./libs && gcc -o libsecondLib.so -shared -fPIC ../src/second_functions.c ../src/support_functions.c -lm 
 
 
 	

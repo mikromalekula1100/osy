@@ -4,8 +4,6 @@
 #include <stdbool.h>
 
 
-
-
 const char* list_library_paths[2] = {"./libs/libfirstLib.so", "./libs/libsecondLib.so"};
 
 void* init_library(const char* name_library) {
@@ -19,12 +17,13 @@ void* list_hdl[2];
 
 
 int (*GCF) (int, int);
-double (*calculatingE) (int);
+double (*calculating_e) (int);
   
 void init_funtions(){
 
     GCF = (int(*)(int,int))dlsym(list_hdl[current_library - 1], "GCF");
-    calculatingE = (double(*)(int))dlsym(list_hdl[current_library - 1], "calculatingE");
+    
+    calculating_e = (double(*)(int))dlsym(list_hdl[current_library - 1], "calculating_e");
 }
 
 void library_swap(){
@@ -39,6 +38,7 @@ void library_swap(){
 }
 
 int main(){
+
     list_hdl[0] = init_library(list_library_paths[0]);
     list_hdl[1] = init_library(list_library_paths[1]);
 
@@ -69,7 +69,7 @@ int main(){
             int x;
             double result;
             scanf("%d", &x);
-            result = calculatingE(x);
+            result = calculating_e(x);
             printf("Число 'e' = %f \n", result);
         }
         else if(command == -1){
